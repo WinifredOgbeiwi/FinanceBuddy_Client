@@ -6,6 +6,7 @@ import { PATH, IMAGES } from "../../constants/util";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../services/slices/authSlice";
 import { MdErrorOutline } from "react-icons/md";
+import Loader from "../utils/Loader";
 
 const Login = () => {
   const [userDetails, setUserDetails] = useState({
@@ -29,7 +30,8 @@ const Login = () => {
   };
 
   return (
-    <main className=" flex flex-col md:flex-row min-h-screen">
+    <main className=" flex flex-col md:flex-row min-h-screen relative">
+        {loading && <Loader/>}
       <section className="w-full md:w-1/2 section">
         <Logo />
         <h1 className="text-3xl font-bold text-center">WELCOME BACK</h1>
@@ -87,7 +89,7 @@ const Login = () => {
             </Link>
           </div>
           <Button
-            text={loading ? "Logging in..." : "Login"}
+            text="Login"
             type="submit"
             specific="filled_button"
           />
