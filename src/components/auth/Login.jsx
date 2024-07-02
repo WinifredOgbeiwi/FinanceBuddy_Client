@@ -31,11 +31,11 @@ const Login = () => {
 
   return (
     <main className=" flex flex-col md:flex-row min-h-screen relative">
-        {loading && <Loader/>}
+      {loading && <Loader />}
       <section className="w-full md:w-1/2 section">
         <Logo />
-        <h1 className="text-3xl font-bold text-center">WELCOME BACK</h1>
-        <h3 className="text-2xl font-semibold text-center mt-3 mb-5">Login</h3>
+        <h1 className="text-3xl md:text-5xl font-bold text-center">WELCOME BACK</h1>
+        <h3 className="text-2xl md:text-3xl font-semibold text-center mt-3 mb-5">Login</h3>
 
         <form onSubmit={handleSubmit} className="flex flex-col">
           <label htmlFor="email">Email</label>

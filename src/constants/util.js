@@ -1,7 +1,9 @@
 import Logo from '../assets/images/logo.png'
-import LogoWhite from "../assets/images/logo-white.png";
+import LogoWhite from "../assets/images/logo_white.png";
 import BgCircle from "../assets/images/bgcircle.png";
 import Loader from "../assets/images/loaderLogo.gif";
+import { MdOutlineDashboardCustomize } from 'react-icons/md';
+import { BsCashCoin } from 'react-icons/bs';
 export const PATH = {
   DEFAULT: "/",
   LOGIN: "/login",
@@ -36,3 +38,31 @@ export const IMAGES = {
     },
   ];
 
+
+
+  export const sidebar = [
+    {
+      id: 1,
+      title: "Dashboard",
+      icon: MdOutlineDashboardCustomize,
+      link: PATH.DASHBOARD,
+    },
+    {
+      id: 2,
+      title: "Total Expenses",
+      icon: BsCashCoin,
+      link: PATH.EXPENSES,
+    },
+    {
+      id: 3,
+      title: "Total Income",
+      icon: BsCashCoin,
+      link: PATH.INCOME,
+    },
+    {
+      id: 4,
+      title: "Total Savings",
+      icon: BsCashCoin,
+      link: PATH.SAVINGS,
+    },
+  ];

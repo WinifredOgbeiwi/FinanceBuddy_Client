@@ -10,6 +10,7 @@ import Income from './components/dashboard/Income';
 import Savings from './components/dashboard/Savings';
 import Settings from './components/dashboard/Settings';
 import { AuthorizedUser } from './constants/auth';
+import Layout from './layout/Layout';
 
 const App = () => {
   return (
@@ -21,21 +22,24 @@ const App = () => {
         <Route path={PATH.RESETPASSWORD} element={<ResetPassword />} />
 
         {/* protected Paths */}
-        <Route path={PATH.DASHBOARD} element={
-          <AuthorizedUser><Dashboard /></AuthorizedUser>
-        } />
-        <Route path={PATH.EXPENSES} element={
-          <AuthorizedUser><Expenses /></AuthorizedUser>
-        } />
-        <Route path={PATH.INCOME} element={
-          <AuthorizedUser><Income /></AuthorizedUser>
-        } />
-        <Route path={PATH.SAVINGS} element={
-          <AuthorizedUser><Savings /></AuthorizedUser>
-        } />
-        <Route path={PATH.SETTINGS} element={
-          <AuthorizedUser><Settings /></AuthorizedUser>
-        } />
+        <Route element={<Layout />} >
+          <Route path={PATH.DASHBOARD} element={
+            <AuthorizedUser><Dashboard /></AuthorizedUser>
+          } />
+          <Route path={PATH.EXPENSES} element={
+            <AuthorizedUser><Expenses /></AuthorizedUser>
+          } />
+          <Route path={PATH.INCOME} element={
+            <AuthorizedUser><Income /></AuthorizedUser>
+          } />
+          <Route path={PATH.SAVINGS} element={
+            <AuthorizedUser><Savings /></AuthorizedUser>
+          } />
+          <Route path={PATH.SETTINGS} element={
+            <AuthorizedUser><Settings /></AuthorizedUser>
+          } />
+        </Route>
+
       </Routes>
     </>
   );
