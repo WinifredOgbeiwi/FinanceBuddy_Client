@@ -23,3 +23,16 @@ export const IMAGES = {
   LogoWhite,
   Loader,
 };
+
+
+  export const passwordConditions = [
+    { regex: /.{8,}/, message: "Must be at least 8 characters" },
+    { regex: /\d/, message: "Must contain one number" },
+    { regex: /[A-Z]/, message: "Must contain one alphabet in uppercase" },
+    { regex: /[a-z]/, message: "Must contain one alphabet in lowercase" },
+    {
+      regex: /[!@#$%^&*]/,
+      message: "Must contain one special character (@, #, &, % etc)",
+    },
+  ];
+
