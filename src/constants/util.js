@@ -1,6 +1,7 @@
 import Logo from '../assets/images/logo.png'
 import LogoWhite from "../assets/images/logo_white.png";
 import BgCircle from "../assets/images/bgcircle.png";
+import ProfilePic from "../assets/images/sample_pic.jpg";
 import Loader from "../assets/images/loaderLogo.gif";
 import { MdOutlineDashboardCustomize } from 'react-icons/md';
 import { BsCashCoin } from 'react-icons/bs';
@@ -24,6 +25,7 @@ export const IMAGES = {
   BgCircle,
   LogoWhite,
   Loader,
+  ProfilePic,
 };
 
 
