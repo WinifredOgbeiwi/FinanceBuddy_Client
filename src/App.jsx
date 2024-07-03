@@ -12,6 +12,7 @@ import Settings from './components/dashboard/Settings';
 import { AuthorizedUser } from './constants/auth';
 import Layout from './layout/Layout';
 
+
 const App = () => {
   return (
     <>
@@ -20,7 +21,7 @@ const App = () => {
         <Route path={PATH.LOGIN} element={<Login />} />
         <Route path={PATH.REGISTER} element={<Register />} />
         <Route path={PATH.RESETPASSWORD} element={<ResetPassword />} />
-
+       
         {/* protected Paths */}
         <Route element={<Layout />} >
           <Route path={PATH.DASHBOARD} element={

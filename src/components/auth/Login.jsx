@@ -30,13 +30,21 @@ const Login = () => {
   };
 
   return (
-    <main className=" flex flex-col md:flex-row min-h-screen relative">
+    <main className="flex flex-col md:flex-row min-h-screen relative">
       {loading && <Loader />}
       <section className="w-full md:w-1/2 section">
         <Logo />
         <h1 className="text-3xl md:text-5xl font-bold text-center">WELCOME BACK</h1>
         <h3 className="text-2xl md:text-3xl font-semibold text-center mt-3 mb-5">Login</h3>
-
+        {error && (
+          <div className="border-2 border-red-600 bg-red-200 backdrop-blur-3xl flex items-center gap-2 rounded-[3px] my-2 pl-2 py-[2px]">
+            <MdErrorOutline size={20} />
+            <p className="text-sm">
+              Your email or password is incorrect. <br />
+              Please try again!
+            </p>
+          </div>
+        )}
         <form onSubmit={handleSubmit} className="flex flex-col">
           <label htmlFor="email">Email</label>
           <input
@@ -48,7 +56,7 @@ const Login = () => {
               setUserDetails({ ...userDetails, email: e.target.value })
             }
             placeholder="Enter your email"
-            className=" border-2 rounded-[3px] p-2 mt-[3px] border-main outline-none"
+            className="border-2 rounded-[3px] p-2 mt-[3px] border-main outline-none"
           />
 
           <label htmlFor="password" className="mt-6">
@@ -63,17 +71,9 @@ const Login = () => {
               setUserDetails({ ...userDetails, password: e.target.value })
             }
             placeholder="• • • • • • • •"
-            className=" border-2 rounded-[3px] p-2 mt-[3px] border-main outline-none"
+            className="border-2 rounded-[3px] p-2 mt-[3px] border-main outline-none"
           />
-          {error && (
-            <div className="border-2 border-red-600 bg-red-200 backdrop-blur-3xl flex items-center gap-2 rounded-[3px] mt-2 pl-2 py-[2px]">
-              <MdErrorOutline size={20} />
-              <p className="text-sm">
-                Your email or password is incorrect. <br />
-                Please try again!
-              </p>
-            </div>
-          )}
+         
           <div className="flex justify-between mt-4">
             <div>
               <input

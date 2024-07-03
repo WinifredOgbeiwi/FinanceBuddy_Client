@@ -9,6 +9,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -33,8 +34,9 @@ a:hover {
   overflow: hidden;
   background-size: 400%;
   cursor: pointer;
-  
+
 }
+
 .button {
   border: 1px solid #1c4532;
   border-radius: 3px;
@@ -74,10 +76,10 @@ a:hover {
 .filled_button {
   width: 100%;
   height: 2.9rem;
-  background:#1c4532;
+  background: #1c4532;
   color: white;
-  margin:  0;
-  
+  margin: 0;
+
 }
 
 .filled_button:hover {
@@ -88,6 +90,14 @@ a:hover {
   background: rgb(255, 255, 255);
 }
 
-.main,.section{
+.main,
+.section {
   padding: 20px;
 }
+
+
+.shadow {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+

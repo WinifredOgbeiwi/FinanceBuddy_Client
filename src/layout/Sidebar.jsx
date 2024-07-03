@@ -7,7 +7,7 @@ import { CiLogout } from 'react-icons/ci';
 const Sidebar = () => {
   const [navName, setNavName] = useState('')
   return (
-    <div className='flex flex-col h-screen justify-between'>
+    <div className='flex flex-col h-screen justify-between fixed'>
       <div className='flex flex-col flex-1 items-center md:items-start'>
         <div className=' w-full flex justify-center mb-4'>
           <img src={IMAGES.LogoWhite} alt="" className='w-16' />
