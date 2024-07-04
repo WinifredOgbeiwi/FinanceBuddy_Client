@@ -30,6 +30,7 @@ const Register = () => {
     occupation: "",
     location: "",
     email: "",
+    image: "",
     password: "",
     confirmPassword: ""
   });

@@ -26,6 +26,7 @@ const Settings = () => {
     lastName: "",
     occupation: "",
     location: "",
+    image:"",
     oldPassword: "",
     newPassword: ""
   });
@@ -60,6 +61,7 @@ const Settings = () => {
         occupation: user.occupation || "",
         location: user.location || "",
         email: user.email || "",
+        image: user.image || "",
       });
     }
   }, [user]);
