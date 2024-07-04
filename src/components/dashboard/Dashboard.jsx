@@ -15,13 +15,13 @@ const Dashboard = () => {
   }, [dispatch, auth.user]); 
 
 
-  if (user.loading) return <p>Loading...</p>;
-  if (user.error) return <p>Error: {user.error}</p>;
+  // if (user.loading) return <p>Loading...</p>;
+  // if (user.error) return <p>Error: {user.error}</p>;
 
   return (
     <div>
       <h1>Dashboard</h1>
-      {user.userDetails && (
+      {/* {user.userDetails && (
         <div>
           <p>First Name: {user.userDetails.firstName}</p>
           <p>Last Name: {user.userDetails.lastName}</p>
@@ -33,7 +33,7 @@ const Dashboard = () => {
           <p>Updated At: {new Date(user.userDetails.updatedAt).toLocaleString()}</p>
         </div>
       )}
-      <hr/>
+      <hr/> */}
 
     </div>
   );
