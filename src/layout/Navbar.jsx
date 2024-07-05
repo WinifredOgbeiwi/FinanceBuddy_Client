@@ -26,7 +26,12 @@ const Navbar = () => {
         <div className='flex justify-center items-center'>
           <IoIosNotifications className='mr-6 text-2xl' />
           <Link to={PATH.SETTINGS} className='flex items-center'>
-            <div className='w-10 h-10 mr-3 rounded-full overflow-hidden'><img src={IMAGES.ProfilePic} alt="pic" /></div>
+            <div className='w-10 h-10 mr-3 rounded-full overflow-hidden'>
+           
+              <div className=" bg-main text-white h-full flex items-center justify-center font-bold text-xl uppercase">
+                {user.userDetails.firstName.charAt(0)}{user.userDetails.lastName.charAt(0)}
+              </div>
+              </div>
             <h2 className='font-medium capitalize'>{user.userDetails.firstName} {user.userDetails.lastName}</h2>
           </Link>
 
