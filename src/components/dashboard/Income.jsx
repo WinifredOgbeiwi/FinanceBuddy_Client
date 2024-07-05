@@ -1,6 +1,12 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom';
 
 const Income = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const {loading, error} = useSelector((state) => state.addIncome)
+  
   return (
     <main>
       {/* header */}
