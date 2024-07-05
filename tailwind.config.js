@@ -5,6 +5,11 @@ export default {
     extend: {
       colors: {
         main: "#1c4532",
+        secondary: "#f0f8f4",
+        secondary2: "#daf5e7",
+      },
+      borderRadius: {
+        main: "3px",
       },
     },
   },
