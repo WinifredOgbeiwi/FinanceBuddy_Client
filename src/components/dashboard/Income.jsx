@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Modal from "../utils/Modal";
 import Button from "../utils/Button";
 import { addIncome, resetSuccess } from "../../services/slices/income/addIncomeSlice";
-import { IMAGES } from "../../constants/util";
+
 import { InlineLoader } from "../utils/Loader";
 import Table from "../utils/Table";
 
@@ -55,7 +55,7 @@ const Income = () => {
 
       <div className="mt-2">
         {/* header */}
-        <div className="w-full h-52 bg-main mb-2 "></div>
+        <div className="w-full h-52 bg-[#0048DE] mb-2 "></div>
 
         <div className="flex justify-between items-start">
           <div className="border-2 flex flex-col justify-center items-center py-4 px-10">
@@ -130,7 +130,9 @@ const Income = () => {
             </form>
           </Modal>
         </div>
+
         <Table/>
+
       </div>
     </main>
   );
