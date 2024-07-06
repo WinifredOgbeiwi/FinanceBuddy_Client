@@ -88,7 +88,7 @@ const Settings = () => {
     }
   };
 
-  console.log("selected file",selectedFile);
+  console.log("selected file", selectedFile);
   return (
     <main className="scroll-auto">
       {loading && <Loader />}
@@ -220,9 +220,8 @@ const Settings = () => {
                     ? userDelts.occupation
                     : "Enter occupation"
                 }
-                className={`w-full border-2 rounded-[3px] p-2 mt-[3px] border-main outline-none ${
-                  userDelts.occupation ? "placeholder:text-black" : ""
-                }`}
+                className={`w-full border-2 rounded-[3px] p-2 mt-[3px] border-main outline-none ${userDelts.occupation ? "placeholder:text-black" : ""
+                  }`}
               />
             </div>
             <CountrySelect
@@ -321,11 +320,10 @@ const Settings = () => {
                         <MdCancel className="text-red-500 text-md" />
                       )}
                       <p
-                        className={`${
-                          checkCondition(condition.regex)
+                        className={`${checkCondition(condition.regex)
                             ? "text-green-500"
                             : "text-red-500"
-                        } leading-5 text-xs`}
+                          } leading-5 text-xs`}
                       >
                         {condition.message}
                       </p>

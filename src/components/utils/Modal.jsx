@@ -8,7 +8,7 @@ const Modal = ({ isOpen, isClose, children, title }) => {
     <ModalReact
       isOpen={isOpen}
       appElement={document.getElementById("root")}
-      className="p-0 absolute inset-10 w-1/2 m-auto border-2 border-main bg-white outline-none overflow-auto rounded-main"
+      className=" absolute inset-10 md:w-1/2 m-auto border-2 border-main bg-white outline-none overflow-auto rounded-main"
     >
       <div className="flex items-center gap-3 justify-between bg-secondary2 p-3">
         <h3 className="text-main font-semibold text-xl">{title}</h3>
@@ -17,7 +17,7 @@ const Modal = ({ isOpen, isClose, children, title }) => {
           className="  text-xl cursor-pointer hover"
         />
       </div>
-      <div className="mt-5">{children}</div>
+      <div className="mt-3 p-3">{children}</div>
     </ModalReact>
   );
 };
