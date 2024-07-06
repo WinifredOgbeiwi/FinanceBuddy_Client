@@ -6,6 +6,7 @@ import Button from "../utils/Button";
 import { addIncome, resetSuccess } from "../../services/slices/income/addIncomeSlice";
 import { IMAGES } from "../../constants/util";
 import { InlineLoader } from "../utils/Loader";
+import Table from "../utils/Table";
 
 
 const Income = () => {
@@ -129,6 +130,7 @@ const Income = () => {
             </form>
           </Modal>
         </div>
+        <Table/>
       </div>
     </main>
   );
