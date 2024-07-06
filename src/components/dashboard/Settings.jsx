@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Loader from "../utils/Loader";
 import Button from "../utils/Button";
 import { editUserDetails } from "../../services/slices/editUserSlice";
 import { PATH, passwordConditions } from "../../constants/util";
@@ -11,6 +10,7 @@ import CountrySelect from "../utils/CountrySelect";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { IoMdCheckmarkCircle } from "react-icons/io";
 import { MdCancel } from "react-icons/md";
+import { Loader } from "../utils/Loader";
 
 const Settings = () => {
   const dispatch = useDispatch();

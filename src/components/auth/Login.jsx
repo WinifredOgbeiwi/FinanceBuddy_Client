@@ -6,7 +6,7 @@ import { PATH, IMAGES } from "../../constants/util";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../services/slices/authSlice";
 import { MdErrorOutline } from "react-icons/md";
-import Loader from "../utils/Loader";
+import { Loader } from "../utils/Loader";
 
 const Login = () => {
   const [userDetails, setUserDetails] = useState({

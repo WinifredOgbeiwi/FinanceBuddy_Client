@@ -5,11 +5,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { PATH, IMAGES, passwordConditions } from "../../constants/util";
 import { useDispatch, useSelector } from "react-redux";
 import { MdCancel, MdErrorOutline } from "react-icons/md";
-import Loader from "../utils/Loader";
 import axios from "axios";
 import { registerUser } from "../../services/slices/registerSlice";
 import { IoMdCheckmarkCircle } from "react-icons/io";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { Loader } from "../utils/Loader";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -75,7 +75,7 @@ const Register = () => {
 
   return (
     <main className="flex flex-col md:flex-row min-h-screen relative">
-      {loading && <Loader />}
+      {loading && <Loader/>}
       <section className="w-full md:w-1/2 section">
         <Logo />
         <h1 className="text-3xl md:text-5xl font-bold text-center">WELCOME</h1>

@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 import Modal from "../utils/Modal";
 import Button from "../utils/Button";
 import { addIncome, resetSuccess } from "../../services/slices/income/addIncomeSlice";
-import Loader from "../utils/Loader";
+import { IMAGES } from "../../constants/util";
+import { InlineLoader } from "../utils/Loader";
+
 
 const Income = () => {
   const dispatch = useDispatch();
@@ -123,7 +125,7 @@ const Income = () => {
                 className="border-2 rounded-[3px] p-2 mt-[3px] border-main outline-none mb-4"
                 placeholder="Enter description"
               ></textarea>
-              <Button text={loading ? "" : "Add"} type="submit" specific="filled_button" />
+              <Button text={loading ? <InlineLoader /> : "Add"} type="submit" specific="filled_button" />
             </form>
           </Modal>
         </div>

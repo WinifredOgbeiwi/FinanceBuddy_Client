@@ -3,6 +3,7 @@ import LogoWhite from "../assets/images/logo_white.png";
 import BgCircle from "../assets/images/bgcircle.png";
 import ProfilePic from "../assets/images/sample_pic.jpg";
 import Loader from "../assets/images/loaderLogo.gif";
+import InlineLoader from "../assets/images/inline-loader.gif";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { BsCashCoin } from "react-icons/bs";
 import { GiReceiveMoney } from "react-icons/gi";
@@ -26,6 +27,7 @@ export const IMAGES = {
   LogoWhite,
   Loader,
   ProfilePic,
+  InlineLoader,
 };
 
 export const passwordConditions = [
