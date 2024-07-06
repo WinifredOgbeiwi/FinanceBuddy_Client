@@ -116,6 +116,19 @@ input[type="number"] {
   appearance: textfield;
 }
 
+/* TABLE */
+
+td,
+th {
+  text-align: left;
+  padding: 8px;
+  text-align: center;
+}
+tr:nth-child(even) {
+  background-color: #daf5e7;
+}
+
+
 
 /* black: {
     100: "#d2dad6",
