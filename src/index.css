@@ -23,7 +23,8 @@ a {
   text-decoration: none;
 }
 
-a:hover,.hover:hover {
+a:hover,
+.hover:hover {
   transform: scale(1.03);
 }
 
@@ -101,8 +102,8 @@ a:hover,.hover:hover {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.sidebar-bg{
-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+.sidebar-bg {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -117,6 +118,17 @@ input[type="number"] {
 }
 
 /* TABLE */
+table {
+  background-color: #1c4532;
+  border: none;
+}
+
+table,
+th,
+td {
+  border: 1px solid #1c4532;
+  border-collapse: collapse;
+}
 
 td,
 th {
@@ -124,7 +136,12 @@ th {
   padding: 8px;
   text-align: center;
 }
-tr:nth-child(even) {
+
+.colored-table:nth-child(odd) {
+  background-color: white;
+}
+
+.colored-table:nth-child(even) {
   background-color: #daf5e7;
 }
 

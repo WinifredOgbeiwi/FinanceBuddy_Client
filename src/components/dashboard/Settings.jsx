@@ -21,6 +21,7 @@ const Settings = () => {
   const { user, loading, error } = useSelector((state) => state.editUser);
   const userDelts = userDetails.userDetails;
 
+
   const [selectedFile, setSelectedFile] = useState(null);
   const [userData, setUserData] = useState({
     firstName: "",

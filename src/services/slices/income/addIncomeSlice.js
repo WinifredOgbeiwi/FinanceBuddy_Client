@@ -9,8 +9,8 @@ const initialState = {
   success: false, 
 };
 
-export const addIncome = createAsyncThunk(
-  "income/addIncome",
+export const addIncomes = createAsyncThunk(
+  "income/addIncomes",
   async (credentials, thunkAPI) => {
     try {
       const response = await axios.post("incomes/add", credentials);
@@ -23,7 +23,7 @@ export const addIncome = createAsyncThunk(
 );
 
 const addIncomeSlice = createSlice({
-  name: "addIncome",
+  name: "addIncomes",
   initialState,
   reducers: {
     resetSuccess: (state) => {
@@ -32,17 +32,17 @@ const addIncomeSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(addIncome.pending, (state) => {
+      .addCase(addIncomes.pending, (state) => {
         state.loading = true;
         state.error = null;
         state.success = false; 
       })
-      .addCase(addIncome.fulfilled, (state, action) => {
+      .addCase(addIncomes.fulfilled, (state, action) => {
         state.loading = false;
         state.income = action.payload;
         state.success = true; 
       })
-      .addCase(addIncome.rejected, (state, action) => {
+      .addCase(addIncomes.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });

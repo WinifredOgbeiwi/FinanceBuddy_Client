@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Modal from "../utils/Modal";
 import Button from "../utils/Button";
-import { addIncome, resetSuccess } from "../../services/slices/income/addIncomeSlice";
+import { addIncomes, resetSuccess } from "../../services/slices/income/addIncomeSlice";
 
 import { InlineLoader } from "../utils/Loader";
 import Table from "../utils/Table";
@@ -13,7 +13,11 @@ const Income = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const auth = useSelector((state) => state.auth);
-  const { loading, error, success } = useSelector((state) => state.addIncome);
+  const { loading, error, success } = useSelector((state) => state.addIncomes);
+
+  const userIncomes = useSelector((state) => state.getUserIncomes);
+
+  console.log(userIncomes)
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [incomeData, setIncomeData] = useState({
@@ -130,9 +134,7 @@ const Income = () => {
             </form>
           </Modal>
         </div>
-
         <Table/>
-
       </div>
     </main>
   );
