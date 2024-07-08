@@ -20,19 +20,19 @@ const Navbar = () => {
     return null; 
   }
   return (
-    <header className='w-full'>
-      <nav className='flex w-full'>
-        <h3 className='flex-1'>Hi, {user.userDetails.firstName}</h3>
+    <header className='w-full bg-main text-white py-2 px-4'>
+      <nav className='flex items-center w-full'>
+        <h3 className='flex-1 capitalize'>Hi, {user.userDetails.firstName}</h3>
         <div className='flex justify-center items-center'>
           <IoIosNotifications className='mr-6 text-2xl' />
           <Link to={PATH.SETTINGS} className='flex items-center'>
             <div className='w-10 h-10 mr-3 rounded-full overflow-hidden'>
            
-              <div className=" bg-main text-white h-full flex items-center justify-center font-bold text-xl uppercase">
+              <div className=" bg-white text-main h-full flex items-center justify-center font-bold text-xl uppercase">
                 {user.userDetails.firstName.charAt(0)}{user.userDetails.lastName.charAt(0)}
               </div>
               </div>
-            <h2 className='font-medium capitalize'>{user.userDetails.firstName} {user.userDetails.lastName}</h2>
+            <h2 className='font-medium capitalize text-white' >{user.userDetails.firstName} {user.userDetails.lastName}</h2>
           </Link>
 
           <IoIosArrowDown className='ml-2 ' />

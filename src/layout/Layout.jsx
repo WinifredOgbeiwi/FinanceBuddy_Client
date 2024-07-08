@@ -13,7 +13,7 @@ const Layout = () => {
         <Sidebar />
 
       </section>
-      <section className=" w-full  bg-gray pl-4">
+      <section className=" w-full  bg-gray-100 ">
         {!isSettingsPage && <Navbar />}
         <Outlet />
       </section>
