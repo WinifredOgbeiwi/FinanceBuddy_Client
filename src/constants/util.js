@@ -7,7 +7,7 @@ import Loader from "../assets/images/loaderLogo.gif";
 import InlineLoader from "../assets/images/inline-loader.gif";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { BsCashCoin } from "react-icons/bs";
-import { GiReceiveMoney } from "react-icons/gi";
+import { GiPayMoney, GiReceiveMoney } from "react-icons/gi";
 export const PATH = {
   DEFAULT: "/",
   LOGIN: "/login",
@@ -30,7 +30,6 @@ export const IMAGES = {
   NoDataImg,
   ProfilePic,
   InlineLoader,
-
 };
 
 export const passwordConditions = [
@@ -53,19 +52,19 @@ export const sidebar = [
   },
   {
     id: 2,
-    title: "Total Expenses",
-    icon: BsCashCoin,
+    title: "Expenses",
+    icon: GiPayMoney,
     link: PATH.EXPENSES,
   },
   {
     id: 3,
-    title: "Total Income",
+    title: "Income",
     icon: GiReceiveMoney,
     link: PATH.INCOME,
   },
   {
     id: 4,
-    title: "Total Savings",
+    title: "Savings",
     icon: BsCashCoin,
     link: PATH.SAVINGS,
   },
