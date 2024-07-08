@@ -9,7 +9,7 @@ const Layout = () => {
   const isSettingsPage = location.pathname === PATH.SETTINGS;
   return (
     <div className="flex ">
-      <section className="sidebar-bg w-[70px] md:w-[27%] min-h-screen p-2 bg-white">
+      <section className="sidebar-bg w-[70px] md:w-[20%] min-h-screen p-2 bg-main ">
         <Sidebar />
 
       </section>
