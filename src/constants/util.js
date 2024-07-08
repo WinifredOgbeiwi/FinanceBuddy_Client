@@ -30,7 +30,6 @@ export const IMAGES = {
   NoDataImg,
   ProfilePic,
   InlineLoader,
-
 };
 
 export const passwordConditions = [
