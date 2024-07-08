@@ -99,7 +99,7 @@ a:hover,
 
 
 .shadow {
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .sidebar-bg {
@@ -123,9 +123,7 @@ table {
   border: none;
 }
 
-table,
-th,
-td {
+table{
   border: 1px solid #1c4532;
   border-collapse: collapse;
 }
@@ -133,7 +131,7 @@ td {
 td,
 th {
   text-align: left;
-  padding: 8px;
+  padding: 10px;
   text-align: center;
 }
 

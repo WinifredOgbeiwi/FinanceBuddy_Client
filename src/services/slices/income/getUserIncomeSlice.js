@@ -1,19 +1,26 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "../../api/axios";
 
+
 export const fetchIncomeDetails = createAsyncThunk(
   "income/getIncomes",
-  async (userId, thunkAPI) => {
+  async ({ userId, page, incomesPerPage }, thunkAPI) => {
     try {
-      const response = await axios.get(`/incomes/user/${userId}`);
+      const response = await axios.get(
+        `/incomes/user/${userId}?page=${page}&limit=${incomesPerPage}`
+      );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
     }
   }
 );
+
 const initialState = {
-  userIncomeDetails: null,
+  userIncomeDetails: [],
+  currentPage: 1,
+  incomesPerPage: 10,
+  totalIncomes: 0,
   loading: false,
   error: null,
 };
@@ -21,7 +28,11 @@ const initialState = {
 const getUserIncomeSlice = createSlice({
   name: "getUserIncomes",
   initialState,
-  reducers: {},
+  reducers: {
+    setCurrentPage: (state, action) => {
+      state.currentPage = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchIncomeDetails.pending, (state) => {
@@ -30,7 +41,8 @@ const getUserIncomeSlice = createSlice({
       })
       .addCase(fetchIncomeDetails.fulfilled, (state, action) => {
         state.loading = false;
-        state.userIncomeDetails = action.payload;
+        state.userIncomeDetails = action.payload.incomes; 
+        state.totalIncomes = action.payload.totalIncomes; 
       })
       .addCase(fetchIncomeDetails.rejected, (state, action) => {
         state.loading = false;
@@ -38,5 +50,7 @@ const getUserIncomeSlice = createSlice({
       });
   },
 });
+
+export const { setCurrentPage } = getUserIncomeSlice.actions;
 
 export default getUserIncomeSlice.reducer;

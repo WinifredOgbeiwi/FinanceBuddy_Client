@@ -89,7 +89,7 @@ const Settings = () => {
     }
   };
 
-  console.log("selected file", selectedFile);
+
   return (
     <main className="scroll-auto">
       {loading && <Loader />}
