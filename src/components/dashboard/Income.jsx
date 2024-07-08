@@ -26,6 +26,8 @@ const Income = () => {
 
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [openAction, setOpenAction] = useState(false)
+
   const [incomeData, setIncomeData] = useState({
     userId: "",
     amount: "",
@@ -62,10 +64,10 @@ const Income = () => {
     const input = document.getElementById('pdf-table');
     const userDetailsDiv = document.getElementById('user-details');
     userDetailsDiv.style.display = 'flex';
-    userDetailsDiv.style.alignItems ='center';
-    userDetailsDiv.style.justifyContent='space-between';
+    userDetailsDiv.style.alignItems = 'center';
+    userDetailsDiv.style.justifyContent = 'space-between';
     const downloadButton = document.getElementById('download-button');
-    downloadButton.style.display='none'
+    downloadButton.style.display = 'none'
     html2canvas(input)
       .then(canvas => {
         const imgData = canvas.toDataURL('image/png');
@@ -107,7 +109,9 @@ const Income = () => {
     }
   }, [success, auth.user, dispatch]);
 
+  const handlesAction = () => {
 
+  }
 
   return (
     <main>
@@ -211,22 +215,22 @@ const Income = () => {
             :
             <div>
               <div className="overflow-x-auto shadow px-7 pt-7 pb-3 mt-10" id="pdf-table">
-                <div 
+                <div
                   id="user-details" className="hidden mb-2"
                 // className="flex items-center justify-between mb-2 "
                 >
-                   <h4 className="text-2xl font-semibold">Income Statment</h4>
-                   <div className=" tex">
+                  <h4 className="text-2xl font-semibold">Income Statment</h4>
+                  <div className=" tex">
                     <h4 className="capitalize">{user.userDetails.firstName} {user.userDetails.lastName}</h4>
                     <p>{user.userDetails.email}</p>
                     <p>{user.userDetails.occupation}, {user.userDetails.location}</p>
-                   </div>
-                  
+                  </div>
+
                 </div>
-                
+
 
                 <table className="w-full" >
-                 
+
                   <thead className="bg-main w-full text-white">
                     <tr>
                       <th className="w-[35%]">Description</th>
@@ -243,19 +247,25 @@ const Income = () => {
                           <td>{item.amount}</td>
                           <td>{date(item.date)}</td>
                           <td>{item.category}</td>
-                          <td className="cursor-pointer">
-                            <HiOutlineDotsVertical />
-                          </td>
+                          {/* <td className="cursor-pointer">
+                            <HiOutlineDotsVertical onClick={() => setOpenAction(!openAction)} />
+                            {openAction && (
+                              <div className="text-red-500 text-sm">Delete</div>
+                            )}
+                          </td> */}
                         </tr>
                       ))}
+                   
                     {placeholderRows}
                   </tbody>
                 </table>
                 <div className="flex justify-between items-center mt-2">
                   <p>Showing {startIndex} to {endIndex} of {totalIncomes} entries</p>
 
-                  <button id="donwload-button" onClick={downloadPDF} className="bg-main text-white px-4 py-2 ">Download as PDF</button>
-                  
+                  <Button text="Download as PDF" specific="short-filled" onClick={downloadPDF} />
+
+
+
                   <div className=" flex space-x-6">
                     <button
                       onClick={() => handlePageChange(currentPage - 1)}
@@ -283,7 +293,7 @@ const Income = () => {
                   </div>
                 </div>
               </div>
-         
+
 
             </div>
           }

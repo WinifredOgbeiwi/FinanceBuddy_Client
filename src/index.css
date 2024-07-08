@@ -73,21 +73,22 @@ a:hover,
 }
 
 
-
 .filled_button {
   width: 100%;
+}
+.filled_button,.short-filled {
+  padding:0 10px;
   height: 2.9rem;
   background: #1c4532;
   color: white;
   margin: 0;
-
 }
 
-.filled_button:hover {
+.filled_button:hover, .short-filled:hover {
   color: #1c4532;
 }
 
-.filled_button::before {
+.filled_button::before, .short-filled::before {
   background: rgb(255, 255, 255);
 }
 

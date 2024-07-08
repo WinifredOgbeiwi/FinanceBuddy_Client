@@ -1,12 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "../../api/axios";
 
-export const fetchIncomeDetails = createAsyncThunk(
-  "income/getIncomes",
+export const fetchExpensesDetails = createAsyncThunk(
+  "expenses/getExpenses",
   async ({ userId, page, incomesPerPage }, thunkAPI) => {
     try {
       const response = await axios.get(
-        `/incomes/user/${userId}?page=${page}&limit=${incomesPerPage}`
+        `/expenses/user/${userId}?page=${page}&limit=${incomesPerPage}`
       );
       return response.data;
     } catch (error) {
@@ -16,15 +16,15 @@ export const fetchIncomeDetails = createAsyncThunk(
 );
 
 const initialState = {
-  userIncomeDetails: [],
+  userExpensesDetails: [],
   currentPage: 1,
-  incomesPerPage: 10,
-  totalIncomes: 0,
+  expensesPerPage: 10,
+  totalExpenses: 0,
   loading: false,
   error: null,
 };
 
-const getUserIncomeSlice = createSlice({
+const getUserExpensesSlice = createSlice({
   name: "getUserExpenses",
   initialState,
   reducers: {
@@ -34,22 +34,22 @@ const getUserIncomeSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchIncomeDetails.pending, (state) => {
+      .addCase(fetchExpensesDetails.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchIncomeDetails.fulfilled, (state, action) => {
+      .addCase(fetchExpensesDetails.fulfilled, (state, action) => {
         state.loading = false;
-        state.userIncomeDetails = action.payload.incomes;
-        state.totalIncomes = action.payload.totalIncomes;
+        state.userExpensesDetails = action.payload.expenses;
+        state.totalExpenses = action.payload.totalExpenses;
       })
-      .addCase(fetchIncomeDetails.rejected, (state, action) => {
+      .addCase(fetchExpensesDetails.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });
   },
 });
 
-export const { setCurrentPage } = getUserIncomeSlice.actions;
+export const { setCurrentPage } = getUserExpensesSlice.actions;
 
-export default getUserIncomeSlice.reducer;
+export default getUserExpensesSlice.reducer;

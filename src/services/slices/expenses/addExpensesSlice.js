@@ -2,18 +2,18 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "../../api/axios";
 
 const initialState = {
-  income: null,
+  expenses: null,
   token: null,
   loading: false,
   error: null,
   success: false,
 };
 
-export const addIncomes = createAsyncThunk(
-  "income/addIncomes",
+export const addExpenses = createAsyncThunk(
+  "expenses/addExpenses",
   async (credentials, thunkAPI) => {
     try {
-      const response = await axios.post("incomes/add", credentials);
+      const response = await axios.post("expenses/add", credentials);
       const data = response.data;
       return data;
     } catch (error) {
@@ -22,7 +22,7 @@ export const addIncomes = createAsyncThunk(
   }
 );
 
-const addIncomeSlice = createSlice({
+const addExpensesSlice = createSlice({
   name: "addExpenses",
   initialState,
   reducers: {
@@ -32,23 +32,23 @@ const addIncomeSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(addIncomes.pending, (state) => {
+      .addCase(addExpenses.pending, (state) => {
         state.loading = true;
         state.error = null;
         state.success = false;
       })
-      .addCase(addIncomes.fulfilled, (state, action) => {
+      .addCase(addExpenses.fulfilled, (state, action) => {
         state.loading = false;
-        state.income = action.payload;
+        state.expenses = action.payload;
         state.success = true;
       })
-      .addCase(addIncomes.rejected, (state, action) => {
+      .addCase(addExpenses.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });
   },
 });
 
-export const { resetSuccess } = addIncomeSlice.actions;
+export const { resetSuccess } = addExpensesSlice.actions;
 
-export default addIncomeSlice.reducer;
+export default addExpensesSlice.reducer;
