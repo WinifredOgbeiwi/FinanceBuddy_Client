@@ -23,7 +23,8 @@ a {
   text-decoration: none;
 }
 
-a:hover,.hover:hover {
+a:hover,
+.hover:hover {
   transform: scale(1.03);
 }
 
@@ -72,21 +73,22 @@ a:hover,.hover:hover {
 }
 
 
-
 .filled_button {
   width: 100%;
+}
+.filled_button,.short-filled {
+  padding:0 10px;
   height: 2.9rem;
   background: #1c4532;
   color: white;
   margin: 0;
-
 }
 
-.filled_button:hover {
+.filled_button:hover, .short-filled:hover {
   color: #1c4532;
 }
 
-.filled_button::before {
+.filled_button::before, .short-filled::before {
   background: rgb(255, 255, 255);
 }
 
@@ -98,11 +100,11 @@ a:hover,.hover:hover {
 
 
 .shadow {
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.sidebar-bg{
-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+.sidebar-bg {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -115,6 +117,33 @@ input[type="number"] {
   -moz-appearance: textfield;
   appearance: textfield;
 }
+
+/* TABLE */
+table {
+  background-color: #1c4532;
+  border: none;
+}
+
+table{
+  border: 1px solid #1c4532;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  text-align: left;
+  padding: 10px;
+  text-align: center;
+}
+
+.colored-table:nth-child(odd) {
+  background-color: white;
+}
+
+.colored-table:nth-child(even) {
+  background-color: #daf5e7;
+}
+
 
 
 /* black: {

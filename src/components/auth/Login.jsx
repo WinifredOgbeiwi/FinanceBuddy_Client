@@ -91,7 +91,7 @@ const Login = () => {
           <Button
             text="Login"
             type="submit"
-            specific="filled_button"
+            specific="filled_button w-full"
           />
         </form>
         <p>
