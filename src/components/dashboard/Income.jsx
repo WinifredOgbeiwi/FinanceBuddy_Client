@@ -120,7 +120,7 @@ const Income = () => {
         {/* header---add quotes */}
         {/* <div className="w-full h-52 bg-[#0048DE] mb-2 "></div> */}
 
-        <div className="w-full h-52 shadow mb-2 px-5">
+        <div className=" h-52 shadow bg-white mx-4 px-4 ">
           <div className="flex h-full justify-between items-center">
 
             {/* <div className="border-2 h-full rounded-[3px] flex flex-col justify-center items-center px-10">
@@ -214,7 +214,7 @@ const Income = () => {
           )
             :
             <div>
-              <div className="overflow-x-auto shadow px-7 pt-7 pb-3 mt-10" id="pdf-table">
+              <div className="overflow-x-auto shadow bg-white mx-4 px-4 pt-7 pb-3 mt-10" id="pdf-table">
                 <div
                   id="user-details" className="hidden mb-2"
                 // className="flex items-center justify-between mb-2 "
