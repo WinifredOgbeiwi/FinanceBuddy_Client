@@ -108,11 +108,11 @@ const Expenses = () => {
 
       <div className="mt-6">
 
-        <div className="w-full h-52 shadow mb-2 px-5">
+        <div className=" h-52 shadow bg-white  px-4 mx-4">
           <div className="flex h-full justify-between items-center">
 
             <div>
-              <h1 className="text-4xl font-semibold">Expenses</h1>
+              <h1 className="text-4xl mb-2 font-semibold">Expenses</h1>
               <p>Add Expenses and track your statement</p>
             </div>
 
@@ -198,7 +198,7 @@ const Expenses = () => {
           )
             :
             <div>
-              <div className="overflow-x-auto shadow px-7 pt-7 pb-3 mt-10" id="pdf-table">
+              <div className="overflow-x-auto mx-4 p-4 shadow bg-white pb-3 mt-10" id="pdf-table">
                 <div
                   id="user-details" className="hidden mb-2 items-center justify-between"
                 // className="flex items-center justify-between mb-2 "
