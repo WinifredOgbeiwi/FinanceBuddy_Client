@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../services/slices/authSlice";
 import { MdErrorOutline } from "react-icons/md";
 import { Loader } from "../utils/Loader";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const Login = () => {
   const [userDetails, setUserDetails] = useState({
@@ -16,7 +17,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { loading, error } = useSelector((state) => state.auth);
-
+  const [showPassword, setShowPassword] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(loginUser(userDetails))
@@ -46,35 +47,42 @@ const Login = () => {
           </div>
         )}
         <form onSubmit={handleSubmit} className="flex flex-col">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            value={userDetails.email}
-            onChange={(e) =>
-              setUserDetails({ ...userDetails, email: e.target.value })
-            }
-            placeholder="Enter your email"
-            className="border-2 rounded-[3px] p-2 mt-[3px] border-main outline-none"
-          />
+          <div>
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={userDetails.email}
+              onChange={(e) =>
+                setUserDetails({ ...userDetails, email: e.target.value })
+              }
+              placeholder="Enter your email"
+              className="border-2 block w-full rounded-[3px] p-2 mt-[3px] border-main outline-none"
+            />
+          </div>
 
-          <label htmlFor="password" className="mt-6">
-            Password
-          </label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            value={userDetails.password}
-            onChange={(e) =>
-              setUserDetails({ ...userDetails, password: e.target.value })
-            }
-            placeholder="• • • • • • • •"
-            className="border-2 rounded-[3px] p-2 mt-[3px] border-main outline-none"
-          />
-         
-          <div className="flex justify-between mt-4">
+          <div className="mt-6 relative">
+            <label htmlFor="password" >
+              Password
+            </label>
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              id="password"
+              value={userDetails.password}
+              onChange={(e) =>
+                setUserDetails({ ...userDetails, password: e.target.value })
+              }
+              placeholder="• • • • • • • •"
+              className="border-2 block w-full rounded-[3px] p-2 mt-[3px] border-main outline-none"
+            />
+            <div onClick={() => setShowPassword(!showPassword)} className="absolute top-[42px] right-2 cursor-pointer">
+              {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
+            </div>
+          </div>
+
+          <div className="flex justify-between mt-5 mb-2">
             <div>
               <input
                 type="checkbox"
@@ -94,7 +102,7 @@ const Login = () => {
             specific="filled_button w-full"
           />
         </form>
-        <p>
+        <p className="mt-2">
           Don't have an account?
           <Link to={PATH.REGISTER} className="hover:underline ml-1">
             Register now
