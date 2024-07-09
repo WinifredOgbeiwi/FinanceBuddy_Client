@@ -12,7 +12,7 @@ import NoRecords from "../utils/NoRecords";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import { addSavings } from "../../services/slices/savings/addSavingsSlice";
-import { fetchSavingsDetails } from "../../services/slices/savings/getUserSavings";
+import { fetchSavingsDetails, setCurrentPage } from "../../services/slices/savings/getUserSavings";
 
 
 const Savings = () => {
