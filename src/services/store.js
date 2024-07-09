@@ -8,6 +8,8 @@ import addIncomeReducer from "./slices/income/addIncomeSlice";
 import getUserIncomesReducer from "./slices/income/getUserIncomeSlice";
 import addExpensesReducer from "./slices/expenses/addExpensesSlice";
 import getUserExpensesReducer from "./slices/expenses/getUserExpenses";
+import addSavingsReducer from "./slices/savings/addSavingsSlice";
+import getUserSavingsReducer from "./slices/savings/getUserSavings";
 export const store = configureStore({
   reducer: {
     auth: authReducer,
@@ -20,6 +22,9 @@ export const store = configureStore({
     // expense
     addExpenses: addExpensesReducer,
     getUserExpenses: getUserExpensesReducer,
+    // saving
+    addSavings: addSavingsReducer,
+    getUserSavings: getUserSavingsReducer,
   },
 });
 
