@@ -4,12 +4,13 @@ import Modal from "../utils/Modal";
 import Button from "../utils/Button";
 import { InlineLoader } from "../utils/Loader";
 import { fetchUserDetails } from "../../services/slices/userSlice";
-import { HiOutlineChevronLeft, HiOutlineChevronRight, HiOutlineDotsVertical } from "react-icons/hi";
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 import NoRecords from "../utils/NoRecords";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import { addExpenses } from "../../services/slices/expenses/addExpensesSlice";
 import { fetchExpensesDetails, setCurrentPage } from "../../services/slices/expenses/getUserExpenses";
+import Headers from "../utils/Headers";
 
 
 const Expenses = () => {
@@ -43,10 +44,10 @@ const Expenses = () => {
   };
   const placeholderRows = Array.from({ length: 10 - (userExpensesDetails ? userExpensesDetails.length : 0) }, (_, index) => (
     <tr key={`placeholder-${index}`} className="colored-table">
-      <td className="w-[35%]">&nbsp;</td>
-      <td className="w-[20%]">&nbsp;</td>
-      <td className="w-[20%]">&nbsp;</td>
-      <td className="w-[25%]">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td >&nbsp;</td>
+      <td >&nbsp;</td>
+      <td>&nbsp;</td>
       {/* <td className="cursor-pointer">
         <HiOutlineDotsVertical className="invisible" />
       </td> */}
@@ -108,25 +109,8 @@ const Expenses = () => {
 
       <div className="mt-6">
 
-        <div className=" h-52 shadow bg-white  px-4 mx-4">
-          <div className="flex h-full justify-between items-center">
-
-            <div>
-              <h1 className="text-4xl mb-2 font-semibold">Expenses</h1>
-              <p>Add Expenses and track your statement</p>
-            </div>
-
-            <button
-              onClick={() => setModalIsOpen(true)}
-              className="border-2 flex flex-col bg-[008000] justify-center items-center px-5 py-3 rounded-[3px] bg-main text-white border-main font-semibold cursor-pointer"
-            >
-              +  Add Expenses
-            </button>
-          </div>
-
-
-
-
+        <div className=" h-52 shadow bg-white  px-4 mx-4 mb-6">
+          <Headers title="Expenses" message="Add Expenses and track your statement" onclick={setModalIsOpen} />
 
           <Modal
             isOpen={modalIsOpen}
@@ -192,16 +176,17 @@ const Expenses = () => {
         </div>
 
         {/* TABLE */}
+
         <section>
           {totalExpenses === 0 ? (
             <NoRecords />
           )
             :
-            <div>
-              <div className="overflow-x-auto mx-4 p-4 shadow bg-white pb-3 mt-10" id="pdf-table">
+            <div className="container mx-auto px-4 pb-4">
+              <div className="overflow-x-auto shadow bg-white px-4 ">
                 <div
                   id="user-details" className="hidden mb-2 items-center justify-between"
-                // className="flex items-center justify-between mb-2 "
+
                 >
                   <h4 className="text-2xl font-semibold">Expenses Statment</h4>
                   <div className=" tex">
@@ -209,52 +194,47 @@ const Expenses = () => {
                     <p>{user.userDetails.email}</p>
                     <p>{user.userDetails.occupation}, {user.userDetails.location}</p>
                   </div>
-
                 </div>
 
-
-                <table className="w-full" >
-
-                  <thead className="bg-main w-full text-white">
+                <table className="min-w-full my-4">
+                  <thead className="bg-main text-white uppercase">
                     <tr>
-                      <th className="w-[35%]">Description</th>
-                      <th className="w-[20%]">Amount</th>
-                      <th className="w-[20%]">Date</th>
-                      <th className="w-[25%]">Category</th>
+                      <th >Description</th>
+                      <th >Amount</th>
+                      <th >Date</th>
+                      <th >Category</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody >
                     {userExpensesDetails &&
                       userExpensesDetails.map((item, index) => (
                         <tr key={index} className="colored-table">
-                          <td className="first-letter:capitalize">{item.description}</td>
-                          <td>{item.amount}</td>
-                          <td>{date(item.date)}</td>
-                          <td className=" first-letter:capitalize">{item.category}</td>
-                        </tr>
-                      ))}
-
+                          <td className=" whitespace-nowrap first-letter:capitalize">{item.description}</td>
+                          <td className=" py-4 whitespace-nowrap first-letter:capitalize">{item.amount}</td>
+                          <td className=" py-4 whitespace-nowrap first-letter:capitalize">{date(item.date)}</td>
+                          <td className=" py-4 whitespace-nowrap first-letter:capitalize">{item.category}</td>
+                          </tr>
+                          ))}
+                   
                     {placeholderRows}
                   </tbody>
                 </table>
-                <div className="flex justify-between items-center mt-2">
-                  <p>Showing {startIndex} to {endIndex} of {totalExpenses} entries</p>
-                  <div id="download-button">
-                    <Button text="Download as PDF" specific="short-filled" onClick={downloadPDF} />
-                  </div>
+              </div>
+            </div>
+
+          }
+        </section>
 
 
+      </div >
+    </main >
+  );
+};
+
+export default Expenses;
 
 
-                  <div className=" flex space-x-6">
-                    <button
-                      onClick={() => handlePageChange(currentPage - 1)}
-                      disabled={currentPage <= 1}
-                      className={`text-gray-600 hover:text-main ${currentPage <= 1 ? 'opacity-85 cursor-not-allowed' : ''}`}
-                    >
-                      <HiOutlineChevronLeft className="text-3xl font-extrabold" />
-                    </button>
-                    {/* {Array.from({ length: totalPages }, (_, index) => (
+{/* {Array.from({ length: totalPages }, (_, index) => (
                       <button
                         key={index + 1}
                         onClick={() => handlePageChange(index + 1)}
@@ -263,24 +243,3 @@ const Expenses = () => {
                         {index + 1}
                       </button>
                     ))} */}
-                    <button
-                      onClick={() => handlePageChange(currentPage + 1)}
-                      disabled={currentPage >= totalPages}
-                      className={`text-gray-600 hover:text-gray-900 ${currentPage >= totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
-                    >
-                      <HiOutlineChevronRight className=" text-3xl font-extrabold" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-
-            </div>
-          }
-        </section>
-      </div>
-    </main>
-  );
-};
-
-export default Expenses;

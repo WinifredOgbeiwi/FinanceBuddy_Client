@@ -8,12 +8,12 @@ const Layout = () => {
   const location = useLocation();
   const isSettingsPage = location.pathname === PATH.SETTINGS;
   return (
-    <div className="flex ">
-      <section className="sidebar-bg w-[70px] md:w-[20%] min-h-screen p-2 bg-main ">
+    <div className="flex h-screen">
+        <section className="w-16 md:w-48 pl-4 pt-3 bg-main text-white fixed h-full">
         <Sidebar />
 
       </section>
-      <section className=" w-full  bg-gray-100 ">
+      <section className="ml-16 md:ml-48 w-full overflow-auto">
         {!isSettingsPage && <Navbar />}
         <Outlet />
       </section>
