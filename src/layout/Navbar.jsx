@@ -24,18 +24,18 @@ const Navbar = () => {
       <nav className='flex items-center w-full'>
         <h3 className='flex-1 capitalize'>Hi, {user.userDetails.firstName}</h3>
         <div className='flex justify-center items-center'>
-          <IoIosNotifications className='mr-6 text-2xl' />
+          <IoIosNotifications className=' text-2xl' />
           <Link to={PATH.SETTINGS} className='flex items-center'>
-            <div className='w-10 h-10 mr-3 rounded-full overflow-hidden'>
+            <div className='w-10 mx-3 sm:mx-6 h-10 rounded-full overflow-hidden'>
            
               <div className=" bg-white text-main h-full flex items-center justify-center font-bold text-xl uppercase">
                 {user.userDetails.firstName.charAt(0)}{user.userDetails.lastName.charAt(0)}
               </div>
               </div>
-            <h2 className='font-medium capitalize text-white' >{user.userDetails.firstName} {user.userDetails.lastName}</h2>
+            <h2 className='sm:block hidden font-medium capitalize text-white' >{user.userDetails.firstName} {user.userDetails.lastName}</h2>
           </Link>
 
-          <IoIosArrowDown className='ml-2 ' />
+          <IoIosArrowDown className='sm:ml-2 ' />
 
         </div>
       </nav>
