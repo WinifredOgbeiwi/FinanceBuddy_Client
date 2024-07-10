@@ -96,24 +96,6 @@ const Expenses = () => {
             <div className="container mx-auto">
               <div className="container mx-auto px-4 pb-4">
                 <div className="overflow-x-auto shadow bg-white px-4 ">
-                  <div
-                    id="user-details"
-                    className="hidden mb-2 items-center justify-between"
-                  >
-                    <h4 className="text-2xl font-semibold">
-                      Expenses Statment
-                    </h4>
-                    <div className=" tex">
-                      <h4 className="capitalize">
-                        {user.userDetails.firstName} {user.userDetails.lastName}
-                      </h4>
-                      <p>{user.userDetails.email}</p>
-                      <p>
-                        {user.userDetails.occupation},{" "}
-                        {user.userDetails.location}
-                      </p>
-                    </div>
-                  </div>
 
                   <Table
                     userDetails={userExpensesDetails}
