@@ -82,10 +82,10 @@ const Register = () => {
         <h3 className="text-2xl md:text-3xl font-semibold text-center mt-3 mb-5">Register</h3>
 
 
-        <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4">
+        <form onSubmit={handleSubmit} className="flex flex-col sm:grid sm:grid-cols-2 gap-4">
 
           <div>
-            <label htmlFor="firstname" className="block">Firstname</label>
+            <label htmlFor="firstname" >Firstname</label>
             <input
               type="text"
               name="firstname"
@@ -101,7 +101,7 @@ const Register = () => {
           </div>
 
           <div>
-            <label htmlFor="lastname" className="block">Lastname</label>
+            <label htmlFor="lastname">Lastname</label>
             <input
               type="text"
               name="lastname"
@@ -238,12 +238,12 @@ const Register = () => {
             )}
           </div>
 
-          <div className="w-full flex justify-between mt-4 col-span-2">
+          <div className="w-full flex items-center justify-between mt-4 col-span-2">
             <div>
               <input type="checkbox" name="remember" id="remember" className="mr-2" />
-              <label htmlFor="remember">Remember me</label>
+              <label htmlFor="remember" className=" max-[330px]:text-sm">Remember me</label>
             </div>
-            <Link to={PATH.RESETPASSWORD} className="hover:underline">
+            <Link to={PATH.RESETPASSWORD} className="hover:underline max-[330px]:text-sm">
               Forget Password
             </Link>
           </div>
@@ -257,8 +257,8 @@ const Register = () => {
           )}
           <Button text="Register" type="submit" specific="filled_button col-span-2" />
         </form>
-        <p>
-          Don't have an account?
+        <p className="max-[330px]:text-sm mt-3">
+          Already Have an Account?
           <Link to={PATH.LOGIN} className="hover:underline ml-1">
             Login now
           </Link>
