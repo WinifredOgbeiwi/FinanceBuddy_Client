@@ -133,7 +133,6 @@ td,
 th {
   text-align: left;
   padding: 10px;
-  text-align: center;
 }
 
 .colored-table:nth-child(odd) {
