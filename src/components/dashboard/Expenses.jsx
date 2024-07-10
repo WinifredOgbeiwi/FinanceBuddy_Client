@@ -197,7 +197,7 @@ const Expenses = () => {
                 </div>
 
                 <table className="min-w-full my-4">
-                  <thead className="bg-main text-white uppercase">
+                  <thead className="bg-main text-white ">
                     <tr>
                       <th >Description</th>
                       <th >Amount</th>
@@ -219,6 +219,7 @@ const Expenses = () => {
                     {placeholderRows}
                   </tbody>
                 </table>
+                
               </div>
             </div>
 
