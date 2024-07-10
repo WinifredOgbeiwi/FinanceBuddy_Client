@@ -4,6 +4,7 @@ import BgCircle from "../assets/images/bgcircle.png";
 import NoDataImg from "../assets/images/no-data.png";
 import ProfilePic from "../assets/images/sample_pic.jpg";
 import Error500 from "../assets/images/500-error.png";
+import Error404 from "../assets/images/404error.png";
 import Loader from "../assets/images/loaderLogo.gif";
 import InlineLoader from "../assets/images/inline-loader.gif";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
@@ -29,6 +30,7 @@ export const IMAGES = {
   LogoWhite,
   Loader,
   Error500,
+  Error404,
   NoDataImg,
   ProfilePic,
   InlineLoader,

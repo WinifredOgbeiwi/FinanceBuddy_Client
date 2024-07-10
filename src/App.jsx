@@ -11,6 +11,7 @@ import Savings from './components/dashboard/Savings';
 import Settings from './components/dashboard/Settings';
 import { AuthorizedUser } from './constants/auth';
 import Layout from './layout/Layout';
+import Error404Page from './components/utils/Error404Page';
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
         <Route path={PATH.LOGIN} element={<Login />} />
         <Route path={PATH.REGISTER} element={<Register />} />
         <Route path={PATH.RESETPASSWORD} element={<ResetPassword />} />
+        <Route path="*" element={<Error404Page />} />
         <Route element={<Layout />} >
           <Route path={PATH.DASHBOARD} element={
             <AuthorizedUser><Dashboard /></AuthorizedUser>
