@@ -2,7 +2,16 @@ import React from "react";
 import { FaTimes } from "react-icons/fa";
 import ModalReact from "react-modal";
 import ModalForm from "./ModalForm";
-const Modal = ({ isOpen, isClose, title, handleSubmit, stateData, setStateData, loading }) => {
+
+const Modal = ({
+  isOpen,
+  isClose,
+  title,
+  handleSubmit,
+  stateData,
+  setStateData,
+  loading,
+}) => {
   ModalReact.setAppElement("#root");
 
   return (
@@ -21,9 +30,9 @@ const Modal = ({ isOpen, isClose, title, handleSubmit, stateData, setStateData, 
       <div className="mt-3 p-3">
         <ModalForm
           handleSubmit={handleSubmit}
-           stateData={stateData}
-            setStateData={setStateData}
-             loading={loading}
+          stateData={stateData}
+          setStateData={setStateData}
+          loading={loading}
         />
       </div>
     </ModalReact>

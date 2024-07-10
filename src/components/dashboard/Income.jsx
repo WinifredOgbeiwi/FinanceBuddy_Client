@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Modal from "../utils/Modal";
-import Button from "../utils/Button";
 import {
   addIncomes,
   resetSuccess,
 } from "../../services/slices/income/addIncomeSlice";
-import { InlineLoader } from "../utils/Loader";
 import { fetchUserDetails } from "../../services/slices/userSlice";
 
 import {
@@ -79,6 +77,7 @@ const Income = () => {
             title="Income"
             message="Add Incomes and track your statement"
             onclick={setModalIsOpen}
+            buttonTitle="+  Add Income"
           />
 
           <Modal

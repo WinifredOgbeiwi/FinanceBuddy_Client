@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from './Button'
 
-const Headers = ({ title, message, onclick }) => {
+const Headers = ({ title, message, onclick,buttonTitle }) => {
     return (
         <div className="flex md:flex-row flex-col h-full justify-center gap-5 md:gap-2 md:justify-between items-center">
             <div className=' max-md:text-center'>
@@ -12,7 +12,7 @@ const Headers = ({ title, message, onclick }) => {
         
 
             <Button
-                text=" +  Add Expenses"
+                text={buttonTitle}
                 onClick={()=>onclick(true)}
                 specific="short-filled "
             />
